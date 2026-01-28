@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internacional Corp</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background: linear-gradient(135deg, #f4f7fb, #e9eef5); color: #222; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
+    header h1 { color: #1e3a8a; }
+    nav a { margin-left: 15px; text-decoration: none; color: #333; font-weight: 500; }
+    nav a:hover { color: #1e3a8a; }
+
+    .hero { text-align: center; padding: 90px 20px; }
+    .hero h2 { font-size: 3rem; margin-bottom: 15px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 25px; }
+    .hero button { padding: 12px 25px; border: none; background: #1e3a8a; color: #fff; border-radius: 25px; cursor: pointer; font-size: 1rem; }
+    .hero button:hover { background: #1d4ed8; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 40px; }
+    .card { background: #fff; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform .3s; }
+    .card:hover { transform: translateY(-8px); }
+    .card h3 { margin-bottom: 10px; color: #1e3a8a; }
+
+    footer { text-align: center; padding: 20px; background: #ffffff; margin-top: 40px; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Internacional Corp</h1>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#promociones">Promociones</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#inversiones">Inversiones</a>
+      <a href="#afiliaciones">Afiliaciones</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Soluciones con alcance global</h2>
+    <p>Conectamos personas, empresas y oportunidades a nivel internacional.</p>
+    <button>Conocer más</button>
+  </section>
+
+  <section class="grid">
+    <div class="card" id="productos">
+      <h3>📦 Productos</h3>
+      <p>Soluciones y servicios adaptados a mercados internacionales.</p>
+    </div>
+    <div class="card" id="promociones">
+      <h3>🎯 Promociones</h3>
+      <p>Ofertas estratégicas para clientes y aliados.</p>
+    </div>
+    <div class="card" id="beneficios">
+      <h3>⭐ Beneficios</h3>
+      <p>Confianza, respaldo y proyección global.</p>
+    </div>
+    <div class="card" id="inversiones">
+      <h3>📈 Inversiones</h3>
+      <p>Oportunidades sólidas para crecer con nosotros.</p>
+    </div>
+    <div class="card" id="afiliaciones">
+      <h3>🤝 Afiliaciones</h3>
+      <p>Únete a nuestra red de socios internacionales.</p>
+    </div>
+    <div class="card" id="contacto">
+      <h3>📞 Contacto</h3>
+      <p>Canales de atención 24/7 en todo el mundo.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Internacional Corp · Todos los derechos reservados
+  </footer>
+</body>
+</html>
