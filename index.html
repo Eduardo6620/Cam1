@@ -1,88 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Internacional Corp</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internacional</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { background: linear-gradient(135deg, #f4f7fb, #e9eef5); color: #222; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 10; }
-    header h1 { color: #1e3a8a; }
-    nav a { margin-left: 15px; text-decoration: none; color: #333; font-weight: 500; }
-    nav a:hover { color: #1e3a8a; }
+    /* ====== RESET ====== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0b0f1a, #12182b);
+      color: #eaeaf0;
+      min-height: 100vh;
+    }
 
-    .hero { text-align: center; padding: 90px 20px; }
-    .hero h2 { font-size: 3rem; margin-bottom: 15px; }
-    .hero p { font-size: 1.2rem; margin-bottom: 25px; }
-    .hero button { padding: 12px 25px; border: none; background: #1e3a8a; color: #fff; border-radius: 25px; cursor: pointer; font-size: 1rem; }
-    .hero button:hover { background: #1d4ed8; }
+    /* ====== HEADER ====== */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 40px; }
-    .card { background: #fff; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform .3s; }
-    .card:hover { transform: translateY(-8px); }
-    .card h3 { margin-bottom: 10px; color: #1e3a8a; }
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #ffffff;
+    }
 
-    footer { text-align: center; padding: 20px; background: #ffffff; margin-top: 40px; font-size: .9rem; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #cfd3ff;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background: #6c7cff;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    /* ====== HERO ====== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 80px 60px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #c9ccff;
+      margin-bottom: 30px;
+    }
+
+    .hero-text button {
+      padding: 12px 28px;
+      background: #6c7cff;
+      border: none;
+      color: #fff;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hero-text button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(108,124,255,0.4);
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      padding: 60px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 24px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .card h3 { margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #cfd3ff; }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.4);
+      font-size: 0.85rem;
+      color: #aeb3ff;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 40px 30px; }
+      section { padding: 40px 30px; }
+      header { flex-direction: column; gap: 15px; }
+    }
   </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17913003408"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17913003408');
-</script>
 </head>
 <body>
   <header>
-    <h1>Internacional Corp</h1>
+    <h1>Internacional</h1>
     <nav>
-      <a href="#productos">Productos</a>
-      <a href="#promociones">Promociones</a>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#inversiones">Inversiones</a>
-      <a href="#afiliaciones">Afiliaciones</a>
-      <a href="#contacto">Contacto</a>
+      <ul>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#promociones">Promociones</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#inversiones">Inversiones</a></li>
+        <li><a href="#afiliaciones">Afiliaciones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#canales">Canales de Atención</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Soluciones con alcance global</h2>
-    <p>Conectamos personas, empresas y oportunidades a nivel internacional.</p>
-    <button>Conocer más</button>
-  </section>
+  <main>
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Soluciones Globales para un Mundo Conectado</h2>
+        <p>En Internacional ofrecemos productos, inversiones y beneficios diseñados para impulsar tu crecimiento en un entorno moderno, seguro y elegante.</p>
+        <button id="btnAccion">Descubrir más</button>
+      </div>
+      <div class="hero-image">
+        <!-- Imagen generada por enlace (puedes cambiarla si quieres) -->
+        <img src="https://images.unsplash.com/photo-1526378722484-cc5c2f9b71c2?auto=format&fit=crop&w=1200&q=80" alt="Imagen internacional" />
+      </div>
+    </div>
 
-  <section class="grid">
-    <div class="card" id="productos">
-      <h3>📦 Productos</h3>
-      <p>Soluciones y servicios adaptados a mercados internacionales.</p>
-    </div>
-    <div class="card" id="promociones">
-      <h3>🎯 Promociones</h3>
-      <p>Ofertas estratégicas para clientes y aliados.</p>
-    </div>
-    <div class="card" id="beneficios">
-      <h3>⭐ Beneficios</h3>
-      <p>Confianza, respaldo y proyección global.</p>
-    </div>
-    <div class="card" id="inversiones">
-      <h3>📈 Inversiones</h3>
-      <p>Oportunidades sólidas para crecer con nosotros.</p>
-    </div>
-    <div class="card" id="afiliaciones">
-      <h3>🤝 Afiliaciones</h3>
-      <p>Únete a nuestra red de socios internacionales.</p>
-    </div>
-    <div class="card" id="contacto">
-      <h3>📞 Contacto</h3>
-      <p>Canales de atención 24/7 en todo el mundo.</p>
-    </div>
-  </section>
+    <section id="productos">
+      <h2>Productos</h2>
+      <div class="grid">
+        <div class="card"><h3>Producto A</h3><p>Descripción breve del producto A.</p></div>
+        <div class="card"><h3>Producto B</h3><p>Descripción breve del producto B.</p></div>
+        <div class="card"><h3>Producto C</h3><p>Descripción breve del producto C.</p></div>
+      </div>
+    </section>
+
+    <section id="promociones">
+      <h2>Promociones</h2>
+      <div class="grid">
+        <div class="card"><h3>Promo 1</h3><p>Oferta especial por tiempo limitado.</p></div>
+        <div class="card"><h3>Promo 2</h3><p>Descuentos exclusivos para afiliados.</p></div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <h2>Beneficios</h2>
+      <div class="grid">
+        <div class="card"><h3>Soporte 24/7</h3><p>Atención continua para todos nuestros clientes.</p></div>
+        <div class="card"><h3>Seguridad</h3><p>Plataforma confiable y protegida.</p></div>
+        <div class="card"><h3>Alcance Global</h3><p>Conexiones en múltiples países.</p></div>
+      </div>
+    </section>
+
+    <section id="inversiones">
+      <h2>Inversiones</h2>
+      <p>Oportunidades de inversión pensadas para un crecimiento sostenible.</p>
+    </section>
+
+    <section id="afiliaciones">
+      <h2>Afiliaciones</h2>
+      <p>Únete a nuestra red internacional y accede a beneficios exclusivos.</p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Email: contacto@internacional.com | Tel: +00 123 456 789</p>
+    </section>
+
+    <section id="canales">
+      <h2>Canales de Atención</h2>
+      <p>Chat en vivo, correo electrónico y atención telefónica.</p>
+    </section>
+  </main>
 
   <footer>
-    © 2026 Internacional Corp · Todos los derechos reservados
+    <p>© 2026 Internacional. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // ====== JAVASCRIPT ======
+    document.getElementById('btnAccion').addEventListener('click', () => {
+      alert('Gracias por tu interés en Internacional 🌍');
+    });
+  </script>
 </body>
 </html>
